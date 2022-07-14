@@ -6,7 +6,14 @@ const { validateNewUser, validatePassword } = require('./middleware')
 server.use(express.json());
 
 server.get('/', (req, res) => {
-    res.send(`<h1>The Server Is Online</h1>`)
+    res.send(`
+        <h1>The Server Is Online</h1>
+        <form>
+            <input type="text" name="username" placeholder="please enter a username"/>
+            <input type="text" name="password" placeholder="please enter a password" />
+            <button>Submit</button>
+        </form>
+    `)
 })
 
 server.get('/api/users', (req, res, next) => {
